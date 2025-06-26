@@ -1,0 +1,18 @@
+﻿@page
+@model Domino.Pages.ConversationModel
+@{
+    ViewData["Title"] = "Talk with GPT";
+}
+
+<h2>Voice Chat</h2>
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Start Conversation</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Result))
+{
+    <div class="alert alert-info mt-3">
+        <pre>@Model.Result</pre>
+    </div>
+}

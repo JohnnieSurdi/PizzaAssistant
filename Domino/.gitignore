@@ -1,0 +1,21 @@
+﻿# Build output
+bin/
+obj/
+
+# VS and Rider
+.vs/           
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+
+# App settings
+appsettings.Local.json
+appsettings.Development.json
+appsettings.Production.json
+*.secrets.json
+
+# Logs and DBs
+*.log
+*.db

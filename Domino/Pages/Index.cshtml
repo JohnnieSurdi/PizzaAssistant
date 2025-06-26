@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">🎙️ Voice Test</h1>
+    <p>Click the button below and speak into your microphone.</p>
+
+    <!-- STT -->
+    <form method="post" asp-page-handler="Recognize">
+        <button type="submit" class="btn btn-primary">Start Recognition (Mic)</button>
+    </form>
+
+    @if (Model.RecognizedText != null)
+    {
+        <div class="alert alert-success mt-4">
+            <strong>Recognized:</strong>
+            <p>@Model.RecognizedText</p>
+        </div>
+    }
+
+    <hr />
+
+    <h2 class="mt-5">🗣️ Text to Speech</h2>
+    <form method="post" asp-page-handler="Speak">
+        <input type="text" asp-for="InputText" class="form-control mb-2" placeholder="Type something to be spoken..." />
+        <button type="submit" class="btn btn-success">Speak it</button>
+    </form>
+
+    @if (Model.TtsMessage != null)
+    {
+        <div class="alert alert-info mt-3">
+            <strong>Status:</strong> @Model.TtsMessage
+        </div>
+    }
+
+    <a asp-page="/Conversation" class="btn btn-success mt-3">Go to Conversation Page</a>
+</div>
